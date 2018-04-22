@@ -1,5 +1,8 @@
+{{-- Home --}}
 @extends('layouts.default')
+
 @section('title', 'home')
+
 @section('content')
   <div class="jumbotron">
     <h1>Hello Laravel</h1>
