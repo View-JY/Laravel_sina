@@ -18,3 +18,18 @@ Route::get('about', 'StaticPagesController@about') ->name('about');
 
 // ------ User
 Route::get('signup', 'UsersController@create') ->name('signup');
+
+Route::group(['prefix' => 'users'], function(){
+    Route::get('/', 'UsersController@index') ->name('users.index');
+    Route::get('/{user}', 'UsersController@show') ->name('users.show');
+    Route::get('/create', 'UsersController@create') ->name('users.create');
+    Route::post('/', 'UsersController@store') ->name('users.store');
+    Route::get('/{user}/edit', 'UsersController@edit') ->name('users.edit');
+    Route::patch('/{user}', 'UsersController@update') ->name('users.update');
+    Route::delete('/{user}', 'UsersController@destroy') ->name('users.destroy');
+});
+
+// ------ Login
+Route::get('login', 'SessionsController@create') ->name('login');
+Route::post('login', 'SessionsController@store') ->name('login');
+Route::delete('logout', 'SessionsController@destroy') ->name('logout');
